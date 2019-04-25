@@ -3,7 +3,7 @@ using Money.Model.Entity;
 
 namespace Money.Model.Persist
 {
-    public class MoneyContext : DbContext
+    public class MoneyContext : DbContext, IMoneyContext
     {
         public MoneyContext(DbContextOptions<MoneyContext> options) : base(options)
         {
@@ -19,6 +19,11 @@ namespace Money.Model.Persist
             {
                 eb.Property(b => b.Amount).HasColumnType("decimal(10,2)");
             });
+        }
+
+        public void ShallowCopy<TEntity>(TEntity source, TEntity target) where TEntity : class
+        {
+            Entry(target).CurrentValues.SetValues(source);
         }
     }
 }

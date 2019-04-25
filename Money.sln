@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Money.WebApp", "Money.WebAp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Money.Model", "Money.Model\Money.Model.csproj", "{6528F584-B2FB-4FA4-A7D8-FBC16E886E0E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Money.Domain", "Money.Domain\Money.Domain.csproj", "{38BFD2ED-464C-41BE-B3C6-DEE33595118E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Money.Domain", "Money.Domain\Money.Domain.csproj", "{38BFD2ED-464C-41BE-B3C6-DEE33595118E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

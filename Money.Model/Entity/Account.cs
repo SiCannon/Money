@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using Money.Model.Lib;
 
 namespace Money.Model.Entity
 {
-    public class Account
+    public class Account : IEntity
     {
         public int Id { get; set; }
         public string Name { get; set; }
