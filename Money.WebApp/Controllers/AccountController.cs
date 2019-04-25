@@ -1,5 +1,7 @@
-﻿using AutoMapper;
+﻿using System.Collections.Generic;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Money.Domain.Interface;
 using Money.Model.Entity;
 using Money.WebApp.ViewModel;
 
@@ -9,11 +11,13 @@ namespace Money.WebApp.Controllers
     [ApiController]
     public class AccountController : ControllerBase
     {
-        private readonly IMapper mapper;
+        readonly IMapper mapper;
+        readonly IAccountService accountService;
 
-        public AccountController(IMapper mapper)
+        public AccountController(IMapper mapper, IAccountService accountService)
         {
             this.mapper = mapper;
+            this.accountService = accountService;
         }
 
         [HttpGet("[action]")]
@@ -27,6 +31,19 @@ namespace Money.WebApp.Controllers
             };
 
             return mapper.Map<AccountVm>(account);
+        }
+
+        [HttpGet("[action]")]
+        public IEnumerable<AccountVm> AddSomeAccounts(int count)
+        {
+            for (int i = 0; i < count; i++)
+            {
+                accountService.Save(new Account
+                {
+                    Name = $"Account #{i + 1}"
+                });
+            }
+            return mapper.Map<IEnumerable<AccountVm>>(accountService.GetAccounts());
         }
     }
 }

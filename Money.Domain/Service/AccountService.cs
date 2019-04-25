@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
+using Money.Domain.Interface;
 using Money.Domain.Lib;
 using Money.Model.Entity;
-using Money.Model.Lib;
 using Money.Model.Persist;
 
 namespace Money.Domain.Service
 {
-    public class AccountService
+    public class AccountService : IAccountService
     {
         readonly MoneyContext moneyContext;
         readonly IEntityPersister entityPersister;
@@ -20,7 +19,7 @@ namespace Money.Domain.Service
 
         public IEnumerable<Account> GetAccounts()
         {
-            return null;
+            return moneyContext.Accounts;
         }
 
         public void Save(Account account)

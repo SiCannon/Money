@@ -1,14 +1,15 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Money.Model;
-using Microsoft.EntityFrameworkCore;
+using Money.Domain.Interface;
+using Money.Domain.Lib;
+using Money.Domain.Service;
 using Money.Model.Persist;
-using AutoMapper;
 
 namespace Money.WebApp
 {
@@ -36,6 +37,10 @@ namespace Money.WebApp
             });
 
             services.AddAutoMapper(typeof(Startup));
+
+            services.AddScoped<IAccountService, AccountService>();
+            services.AddScoped<IEntityPersister, EntityPersister>();
+            services.AddScoped<IMoneyContext, MoneyContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
