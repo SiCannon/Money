@@ -1,4 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
     selector: 'app-account-list',
@@ -6,15 +7,20 @@ import { Component, Inject, OnInit } from '@angular/core';
 })
 export class AccountListComponent implements OnInit {
 
-    //public forecasts: WeatherForecast[];
+    public accounts: Account[];
 
-    //constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    //  http.get<WeatherForecast[]>(baseUrl + 'api/SampleData/WeatherForecasts').subscribe(result => {
-    //    this.forecasts = result;
-    //  }, error => console.error(error));
-    //}
+    constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+        http.get<Account[]>(baseUrl + 'api/Account/GetAll').subscribe(result => {
+            this.accounts = result;
+        }, error => console.error(error));
+    }
 
     ngOnInit() {
         //this.logIt(`OnInit`);
     }
+}
+
+interface Account {
+    Id: number;
+    Name: string;
 }
