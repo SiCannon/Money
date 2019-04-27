@@ -1,5 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { BankAccount } from './bank-account';
+import { AccountService } from './account.service';
 
 @Component({
     selector: 'app-account-list',
@@ -7,20 +9,20 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AccountListComponent implements OnInit {
 
-    public accounts: Account[];
+    public accounts: BankAccount[];
 
-    constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-        http.get<Account[]>(baseUrl + 'api/account/GetAll').subscribe(result => {
-            this.accounts = result;
-        }, error => console.error(error));
+    //constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+    //    http.get<BankAccount[]>(baseUrl + 'api/account/GetAll').subscribe(result => {
+    //        this.accounts = result;
+    //    }, error => console.error(error));
+    //}
+
+    constructor(private accountService: AccountService) {
     }
 
     ngOnInit() {
-        //this.logIt(`OnInit`);
+        this.accountService.getAll().subscribe(x => {
+            this.accounts = x;
+        });
     }
-}
-
-interface Account {
-    id: number;
-    name: string;
 }

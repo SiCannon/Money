@@ -29,6 +29,8 @@
 
     <ItemGroup>
         <None Remove="ClientApp\src\app\account\account-list.component.ts" />
+        <None Remove="ClientApp\src\app\account\account.service.ts" />
+        <None Remove="ClientApp\src\app\account\bank-account.ts" />
     </ItemGroup>
 
     <ItemGroup>
@@ -44,6 +46,8 @@
 
     <ItemGroup>
         <TypeScriptCompile Include="ClientApp\src\app\account\account-list.component.ts" />
+        <TypeScriptCompile Include="ClientApp\src\app\account\account.service.ts" />
+        <TypeScriptCompile Include="ClientApp\src\app\account\bank-account.ts" />
     </ItemGroup>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
