@@ -21,6 +21,12 @@ namespace Money.WebApp.Controllers
         }
 
         [HttpGet("[action]")]
+        public IEnumerable<AccountVm> GetAll()
+        {
+            return mapper.Map<IEnumerable<AccountVm>>(accountService.GetAll());
+        }
+
+        [HttpGet("[action]")]
         public AccountVm TestAutomapper()
         {
             var account = new Account
@@ -43,7 +49,7 @@ namespace Money.WebApp.Controllers
                     Name = $"Account #{i + 1}"
                 });
             }
-            return mapper.Map<IEnumerable<AccountVm>>(accountService.GetAccounts());
+            return mapper.Map<IEnumerable<AccountVm>>(accountService.GetAll());
         }
     }
 }

@@ -17,7 +17,7 @@ namespace Money.Domain.Service
             this.entityPersister = entityPersister;
         }
 
-        public IEnumerable<Account> GetAccounts()
+        public IEnumerable<Account> GetAll()
         {
             return moneyContext.Accounts;
         }

@@ -10,7 +10,7 @@ export class AccountListComponent implements OnInit {
     public accounts: Account[];
 
     constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-        http.get<Account[]>(baseUrl + 'api/Account/GetAll').subscribe(result => {
+        http.get<Account[]>(baseUrl + 'api/account/GetAll').subscribe(result => {
             this.accounts = result;
         }, error => console.error(error));
     }
@@ -21,6 +21,6 @@ export class AccountListComponent implements OnInit {
 }
 
 interface Account {
-    Id: number;
-    Name: string;
+    id: number;
+    name: string;
 }

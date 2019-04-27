@@ -1,10 +1,18 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
+<h1>Accounts</h1>
 
-</body>
-</html>
+<p *ngIf="!accounts"><em>Loading...</em></p>
+
+<table class='table table-striped table-sm' *ngIf="accounts">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let account of accounts">
+            <td>{{ account.id }}</td>
+            <td>{{ account.name }}</td>
+        </tr>
+    </tbody>
+</table>
