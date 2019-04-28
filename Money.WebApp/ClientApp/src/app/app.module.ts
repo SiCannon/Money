@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { AccountListComponent } from './account/account-list.component';
+import { AccountEditComponent } from './account/account-edit.component';
 
 @NgModule({
     declarations: [
@@ -18,7 +19,8 @@ import { AccountListComponent } from './account/account-list.component';
         HomeComponent,
         CounterComponent,
         FetchDataComponent,
-        AccountListComponent
+        AccountListComponent,
+        AccountEditComponent
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -28,7 +30,8 @@ import { AccountListComponent } from './account/account-list.component';
             { path: '', component: HomeComponent, pathMatch: 'full' },
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
-            { path: 'account-list', component: AccountListComponent }
+            { path: 'account-list', component: AccountListComponent },
+            { path: 'account-edit', component: AccountEditComponent }
         ])
     ],
     providers: [],
