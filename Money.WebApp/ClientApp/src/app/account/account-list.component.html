@@ -7,12 +7,14 @@
         <tr>
             <th>Id</th>
             <th>Name</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let account of accounts">
             <td>{{ account.id }}</td>
             <td>{{ account.name }}</td>
+            <td><pre>{{ account | json }}</pre></td>
         </tr>
     </tbody>
 </table>
