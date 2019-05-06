@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { BankAccount } from '../bank-account';
+import { BankAccountService } from '../bank-account.service';
 
 @Component({
   selector: 'app-bank-account-list',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BankAccountListComponent implements OnInit {
 
-  constructor() { }
+    public bankAccounts: BankAccount[];
 
-  ngOnInit() {
-  }
+    constructor(
+        private bankAccountService: BankAccountService) {
+        console.log(bankAccountService);
+    }
+
+    ngOnInit() {
+        this.bankAccountService.getAll().subscribe(x => {
+            this.bankAccounts = x;
+        });
+    }
 
 }
