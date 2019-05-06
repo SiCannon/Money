@@ -1,0 +1,16 @@
+app
+	bank-account
+		bank-account-list
+			bank-account-list.component.ts
+			bank-account-list.component.html
+			bank-account-list.component.scss
+		bank-account-edit
+			bank-account-edit.component.ts
+			bank-account-edit.component.html
+			bank-account-edit.component.scss
+		bank-account.service.ts
+		bank-account.ts
+	transaction
+	
+		
+		

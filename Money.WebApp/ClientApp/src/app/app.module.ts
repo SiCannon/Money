@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
+import { BankAccountModule } from './bank-account/bank-account.module';
+
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
@@ -29,7 +31,8 @@ import { AccountListComponent } from './account/account-list.component';
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
             { path: 'account-list', component: AccountListComponent }
-        ])
+        ]),
+        BankAccountModule
     ],
     providers: [],
     bootstrap: [AppComponent]
